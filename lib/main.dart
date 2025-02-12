@@ -1,11 +1,9 @@
 /*
-GROUP: 01
-FILE: Menu for Screens (invoking tabular navigation)
-PAGE AUTHOR: Ana Isakov
-COURSE: PROG2435
-SECTION: 2
-ASSIGNMENT: Final Project
-APPLICATION NAME: Absolute Value (eCommerce App that sells math products)
+Group: 09
+Team Member: Quyen Ha, Nini Tran, Zixiao Zhou
+Course: INFO2310
+File: Menu for Screens
+Project name: Absolute Value
 */
 
 // --- Program imports ---
@@ -47,21 +45,29 @@ class MenuScreen extends StatelessWidget {
       length: 3, // number of tabs
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary, // following the app color scheme
-            title: const Text("ABSOLUTE VALUE "), // application name -- "Absolute Value"
+            backgroundColor: Theme.of(context)
+                .colorScheme
+                .inversePrimary, // following the app color scheme
+            title: const Text(
+                "ABSOLUTE VALUE "), // application name -- "Absolute Value"
             centerTitle: true,
-            bottom: const TabBar(tabs: [ // list of navigation tabs
-              Tab(icon: Icon(Icons.home), text: "Home"), // with a page title & icon each
+            bottom: const TabBar(tabs: [
+              // list of navigation tabs
+              Tab(
+                  icon: Icon(Icons.home),
+                  text: "Home"), // with a page title & icon each
               Tab(icon: Icon(Icons.list), text: "Catalog"),
               Tab(icon: Icon(Icons.shopping_cart), text: "Shopping Cart"),
             ])),
-        body: TabBarView(children: [ // views to return when user navigates using the nav bar
+        body: TabBarView(children: [
+          // views to return when user navigates using the nav bar
           const WelcomeScreen(),
           const CatalogScreen(),
-          ShoppingCartScreen(cartItems: cartItems,), // shopping cart is empty to begin
+          ShoppingCartScreen(
+            cartItems: cartItems,
+          ), // shopping cart is empty to begin
         ]),
       ),
     );
   }
 }
-

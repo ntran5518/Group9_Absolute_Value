@@ -1,11 +1,9 @@
 /*
-GROUP: 01
-FILE: Shopping Cart Screen (List of Products available to buy)
-PAGE AUTHOR: Ana Isakov
-COURSE: PROG2435
-SECTION: 2
-ASSIGNMENT: Final Project
-APPLICATION NAME: Absolute Value (eCommerce App that sells math products)
+Group: 09
+Team Member: Quyen Ha, Nini Tran, Zixiao Zhou
+Course: INFO2310
+File: Shopping Cart Screen
+Project name: Absolute Value
 */
 
 // ignore_for_file: must_be_immutable
@@ -19,48 +17,60 @@ import 'customer_info_screen.dart';
 // Classes
 import '../classes/item.dart'; // Import Item class to create instances of a product of Absolute Value
 
-
 // SHOPPING CART SCREEN
 class ShoppingCartScreen extends StatefulWidget {
   List<Item> cartItems; // list of items customer has placed in cart
 
   // Constructor
   ShoppingCartScreen({super.key, required this.cartItems});
-  
+
   @override
   ShoppingCartScreenState createState() {
     return ShoppingCartScreenState();
   }
 }
+
 // Shopping Cart Screen State
 class ShoppingCartScreenState extends State<ShoppingCartScreen> {
   // store the TOTAL quantity & cost of all purchased items
   int totalItemQty = 0;
   double totalCost = 0;
-  
+
   /// Override build method
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( // app title
-          title: const Text("Shopping Cart", style: TextStyle(color: Colors.white),),
-          centerTitle: true,
-          backgroundColor: Theme.of(context).colorScheme.primary, // follow app color scheme
+      appBar: AppBar(
+        // app title
+        title: const Text(
+          "Shopping Cart",
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor:
+            Theme.of(context).colorScheme.primary, // follow app color scheme
       ),
-          
       body: Container(
         padding: const EdgeInsets.all(16), // padding for layout beautification
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center, // center screen elements horizontally
-          children: [
-            const Icon(Icons.shopping_cart_rounded, size: 100,), // large cart icon
-            Expanded( // list of cart items
-              child: ListView.builder(
-                itemCount: cartItems.length, // get length of cart items from list
+            crossAxisAlignment: CrossAxisAlignment
+                .center, // center screen elements horizontally
+            children: [
+              const Icon(
+                Icons.shopping_cart_rounded,
+                size: 100,
+              ), // large cart icon
+              Expanded(
+                  // list of cart items
+                  child: ListView.builder(
+                itemCount:
+                    cartItems.length, // get length of cart items from list
                 itemBuilder: (context, index) {
-                  if (cartItems.isEmpty) { // if no items exist, output message
+                  if (cartItems.isEmpty) {
+                    // if no items exist, output message
                     setState(() {
-                      const Text("Empty Cart! Go to Catalog to purchase some items!");
+                      const Text(
+                          "Empty Cart! Go to Catalog to purchase some items!");
                     });
                   }
                   // Loop through each stock item and find matching item to cart item's ID
@@ -70,50 +80,71 @@ class ShoppingCartScreenState extends State<ShoppingCartScreen> {
                       stockItemIndex = i; // store the index of that item
                     }
                   }
-                  
+
                   // Set the cart item's quantity to how much the user bought, not how much is in stock
-                  cartItems[index].quantity = originalItemStockQuantities[stockItemIndex] - currentStatusItems[stockItemIndex].quantity;
-                  
+                  cartItems[index].quantity =
+                      originalItemStockQuantities[stockItemIndex] -
+                          currentStatusItems[stockItemIndex].quantity;
+
                   // get the item associated with the current row
                   Item currItem = cartItems[index];
 
                   // Increment item quantities and prices for output
-                    // totalItemQty += currItem.quantity;
-                    totalCost += currItem.price * currItem.quantity;
-                  
+                  // totalItemQty += currItem.quantity;
+                  totalCost += currItem.price * currItem.quantity;
+
                   // using the item, populate the row UI
                   return ListTile(
-                    title: Text(currItem.name),
-                    leading: Text("ID: ${currItem.id}"),
-                    subtitle: Text("Price: \$${currItem.price.toStringAsFixed(2)}"),
-                    // if there are no more items for sale, then show a SOLD OUT text. Otherwise, show a BUY button
-                    trailing: Text("Purchased Quantity: ${currItem.quantity}", style: const TextStyle(fontSize: 15),)
-                  );
+                      title: Text(currItem.name),
+                      leading: Text("ID: ${currItem.id}"),
+                      subtitle:
+                          Text("Price: \$${currItem.price.toStringAsFixed(2)}"),
+                      // if there are no more items for sale, then show a SOLD OUT text. Otherwise, show a BUY button
+                      trailing: Text(
+                        "Purchased Quantity: ${currItem.quantity}",
+                        style: const TextStyle(fontSize: 15),
+                      ));
                 },
-              )
-            ),
-            // check if cart is empty - if so, output message to go shopping!
-            (cartItems.isEmpty) ? 
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.center, // center screen elements horizontally
-                        children: [
-                          Text("Empty Cart! Visit the catalog page to purchase some items! ", style: TextStyle(fontSize: 30), textAlign: TextAlign.center,), // message to display
-                          Icon(Icons.shopping_cart_outlined, size: 70,), // empty cart image
-                        ],
-                      ) : 
-            // if cart is not empty, show button to continue shopping process
-            Padding(padding: const EdgeInsets.all(30), child: OutlinedButton(onPressed: () {
-              Navigator.push( // stack naviagtion
-                        context, MaterialPageRoute(
-                          builder: (context) { // Navigate to customer info screen to get customer details for purchase
-                            return CustomerInfoScreen(cartItems: cartItems); // send cart list data to next page
-                          }
-                        )
-                      );
-            }, child: const Text("Go to Checkout", style: TextStyle(fontSize: 20),)),) // button label
-            // Output cart status
-          ]
-        ),
+              )),
+              // check if cart is empty - if so, output message to go shopping!
+              (cartItems.isEmpty)
+                  ? const Column(
+                      crossAxisAlignment: CrossAxisAlignment
+                          .center, // center screen elements horizontally
+                      children: [
+                        Text(
+                          "Empty Cart! Visit the catalog page to purchase some items! ",
+                          style: TextStyle(fontSize: 30),
+                          textAlign: TextAlign.center,
+                        ), // message to display
+                        Icon(
+                          Icons.shopping_cart_outlined,
+                          size: 70,
+                        ), // empty cart image
+                      ],
+                    )
+                  :
+                  // if cart is not empty, show button to continue shopping process
+                  Padding(
+                      padding: const EdgeInsets.all(30),
+                      child: OutlinedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                // stack naviagtion
+                                context, MaterialPageRoute(builder: (context) {
+                              // Navigate to customer info screen to get customer details for purchase
+                              return CustomerInfoScreen(
+                                  cartItems:
+                                      cartItems); // send cart list data to next page
+                            }));
+                          },
+                          child: const Text(
+                            "Go to Checkout",
+                            style: TextStyle(fontSize: 20),
+                          )),
+                    ) // button label
+              // Output cart status
+            ]),
       ),
     );
   }

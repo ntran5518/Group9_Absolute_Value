@@ -1,11 +1,9 @@
 /*
-GROUP: 01
-FILE: Success Screen (Receipt & Success message)
-PAGE AUTHOR: Nini Tran
-COURSE: PROG2435
-SECTION: 2
-ASSIGNMENT: Final Project
-APPLICATION NAME: Absolute Value (eCommerce App that sells math products)
+Group: 09
+Team Member: Quyen Ha, Nini Tran, Zixiao Zhou
+Course: INFO2310
+File: Success Screen
+Project name: Absolute Value
 */
 
 // Program Imports
