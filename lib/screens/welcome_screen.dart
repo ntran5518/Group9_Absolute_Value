@@ -15,26 +15,30 @@ class WelcomeScreen extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return WelcomeScreenState(); // return the state
+    return WelcomeScreenState(); // Return the state
   }
 }
 
 // WELCOME SCREEN (Stateful)
 class WelcomeScreenState extends State<WelcomeScreen> {
   // Fun emoji activity for the user on the Welcome Screen
-  String emoji = "🙂"; // welcome page emoji
+  String emoji = "🙂"; // Initial emoji
+
   /// Changes the welcome emoji state on click
   void changeEmoji() {
     setState(() {
-      if (emoji == "🙂") {
-        // change the emoji expression
-        emoji = "😊";
-      } else if (emoji == "😊") {
-        emoji = "😄";
-      } else if (emoji == "😄") {
-        emoji = "😀";
-      } else {
-        emoji = "🙂";
+      switch (emoji) {
+        case "🙂":
+          emoji = "😊";
+          break;
+        case "😊":
+          emoji = "😄";
+          break;
+        case "😄":
+          emoji = "😀";
+          break;
+        default:
+          emoji = "🙂";
       }
     });
   }
@@ -44,42 +48,44 @@ class WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // app title -- Absolute Value
         title: const Text(
           "Welcome to Absolute Value",
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: Theme.of(context)
-            .colorScheme
-            .primary, // follow the app color scheme
+        backgroundColor: Colors.teal, // Use a custom background color
       ),
       body: Center(
-        // center elements on screen
         child: Column(
-          mainAxisAlignment:
-              MainAxisAlignment.center, // center elements horizontally
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 20),
-            // Changing emoji button for user to enjoy
+            // Emoji button for user interaction
             ElevatedButton(
               onPressed: changeEmoji,
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(20),
+                shape: const CircleBorder(),
+              ),
               child: Text(
                 emoji,
                 style: const TextStyle(fontSize: 100),
               ),
             ),
             const SizedBox(height: 20),
-            // website description
+            // Website tagline
             const Text(
               "Absolute Value is absolutely valuable!",
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
-            const Padding(
-              padding: EdgeInsets.all(45),
-              child: Text(
-                "Absolute Value is an eCommerce app for all your mathematical needs,\n"
-                "with a wide variety of products, ranging from pencils to advanced\n"
+            const SizedBox(height: 20),
+            // Website description
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: const Text(
+                "Absolute Value is an eCommerce app for all your mathematical needs.\n"
+                "It offers a wide variety of products, ranging from pencils to advanced\n"
                 "textbooks and formula books.",
                 style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
