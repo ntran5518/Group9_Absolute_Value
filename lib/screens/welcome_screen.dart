@@ -81,9 +81,9 @@ class WelcomeScreenState extends State<WelcomeScreen> {
             ),
             const SizedBox(height: 20),
             // Website description
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: const Text(
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
                 "Absolute Value is an eCommerce app for all your mathematical needs.\n"
                 "It offers a wide variety of products, ranging from pencils to advanced\n"
                 "textbooks and formula books.",

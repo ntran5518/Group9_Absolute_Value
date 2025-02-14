@@ -124,9 +124,7 @@ class CatalogScreenState extends State<CatalogScreen> {
             style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
-          backgroundColor: Theme.of(context)
-              .colorScheme
-              .primary, // follow the app color scheme
+          backgroundColor: Colors.teal, // Use a custom background color
         ),
         body: Container(
             padding:

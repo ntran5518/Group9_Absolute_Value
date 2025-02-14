@@ -124,8 +124,7 @@ class SuccessScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor:
-            Theme.of(context).colorScheme.primary, // follow app color scheme
+        backgroundColor: Colors.teal, // Use a custom background color
       ),
       body: Column(children: [
         const Center(
@@ -135,7 +134,7 @@ class SuccessScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: Colors.white,
             ),
           ),
         ),
@@ -143,7 +142,7 @@ class SuccessScreen extends StatelessWidget {
         Container(
           margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              color: Colors.deepPurple,
+              color: Colors.white,
               border: Border.all(color: Colors.black, width: 5)),
           child: Center(
             child: Padding(
@@ -163,7 +162,7 @@ class SuccessScreen extends StatelessWidget {
                         // style the text
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -172,41 +171,41 @@ class SuccessScreen extends StatelessWidget {
                   Text(
                     'Customer Name: $customerName', // name
                     style: const TextStyle(
-                        fontSize: 18, color: Colors.white), // style the text
+                        fontSize: 18, color: Colors.black), // style the text
                   ),
                   Text(
                     'Customer Email: $customerEmail', // email
-                    style: const TextStyle(fontSize: 18, color: Colors.white),
+                    style: const TextStyle(fontSize: 18, color: Colors.black),
                   ),
                   Text(
                     'Store Member: ${returnYesNo(isMember)}', // member status
-                    style: const TextStyle(fontSize: 18, color: Colors.white),
+                    style: const TextStyle(fontSize: 18, color: Colors.black),
                   ),
                   Text(
                     'Emailed Receipt: ${returnYesNo(getEmailedReceipt)}', // email receipt choice
-                    style: const TextStyle(fontSize: 18, color: Colors.white),
+                    style: const TextStyle(fontSize: 18, color: Colors.black),
                   ),
                   const Divider(
                       height: 30,
                       thickness: 3,
-                      color: Colors.white), // line for separation
+                      color: Colors.black), // line for separation
                   // list the items and each one's attributes
                   ...items.map((item) => Text(
                         'Item: ${item.name}, Qty: ${item.quantity}, Price: \$${item.price.toStringAsFixed(2)}',
                         style:
-                            const TextStyle(fontSize: 18, color: Colors.white),
+                            const TextStyle(fontSize: 18, color: Colors.black),
                       )),
                   const Divider(
                       height: 30,
                       thickness: 3,
-                      color: Colors.white), // line for separation
+                      color: Colors.black), // line for separation
 
                   // Text to show whether customer is member or not (and discount, if customer is a member)
                   (isMember)
                       ? Text(
                           "Member Discount: \$${(total * 0.05).toStringAsFixed(2)}",
                           style: const TextStyle(
-                              fontSize: 18, color: Colors.white),
+                              fontSize: 18, color: Colors.black),
                         )
                       : const Text("No discount",
                           style: TextStyle(fontSize: 18, color: Colors.white)),
@@ -217,7 +216,7 @@ class SuccessScreen extends StatelessWidget {
                       // style the text
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                   const SizedBox(height: 30),
@@ -246,8 +245,7 @@ class SuccessScreen extends StatelessWidget {
                       // Button label
                       child: const Text(
                         'Back to Home',
-                        style:
-                            TextStyle(color: Colors.deepPurple, fontSize: 18),
+                        style: TextStyle(color: Colors.black, fontSize: 18),
                       ),
                     ),
                   ),

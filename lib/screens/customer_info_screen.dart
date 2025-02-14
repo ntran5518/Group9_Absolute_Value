@@ -116,9 +116,7 @@ class CustomerInfoScreenState extends State<CustomerInfoScreen> {
             style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
-          backgroundColor: Theme.of(context)
-              .colorScheme
-              .primary, // follow the app color scheme
+          backgroundColor: Colors.teal, // Use a custom background color
         ),
         body: Padding(
             padding: const EdgeInsets.all(
@@ -133,7 +131,7 @@ class CustomerInfoScreenState extends State<CustomerInfoScreen> {
                         10), // add padding for layout beautification
                     child: Text(
                       "Please enter your contact details to complete your purchase!",
-                      style: TextStyle(fontSize: 18, color: Colors.deepPurple),
+                      style: TextStyle(fontSize: 18, color: Colors.black),
                     ),
                   ),
                   Padding(

@@ -27,15 +27,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of the application
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MenuScreen(), // returns menu screen
+    return MaterialApp(
+      title: "Group9 Absolute Value", // Sets the browser tab title
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
+      home: const MenuScreen(), // Launches the menu screen
     );
   }
 }
 
 // MENU SCREEN (Stateless)
 class MenuScreen extends StatelessWidget {
-  const MenuScreen({super.key}); // constructor
+  const MenuScreen({super.key}); // Constructor
 
   // Overrides the build method
   @override

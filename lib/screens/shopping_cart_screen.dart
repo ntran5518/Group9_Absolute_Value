@@ -47,8 +47,7 @@ class ShoppingCartScreenState extends State<ShoppingCartScreen> {
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor:
-            Theme.of(context).colorScheme.primary, // follow app color scheme
+        backgroundColor: Colors.teal, // Use a custom background color
       ),
       body: Container(
         padding: const EdgeInsets.all(16), // padding for layout beautification
