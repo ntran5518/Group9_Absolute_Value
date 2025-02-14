@@ -60,12 +60,6 @@ class WelcomeScreenState extends State<WelcomeScreen> {
           mainAxisAlignment:
               MainAxisAlignment.center, // center elements horizontally
           children: [
-            const Text('Welcome!',
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                )),
             const SizedBox(height: 20),
             // Changing emoji button for user to enjoy
             ElevatedButton(
@@ -84,8 +78,10 @@ class WelcomeScreenState extends State<WelcomeScreen> {
             const Padding(
               padding: EdgeInsets.all(45),
               child: Text(
-                "Absolute Value is an eCommerce app for all your mathematical needs, with a wide variety of products, ranging from pencils to advanced textbooks and formula books.",
-                style: TextStyle(fontSize: 18),
+                "Absolute Value is an eCommerce app for all your mathematical needs,\n"
+                "with a wide variety of products, ranging from pencils to advanced\n"
+                "textbooks and formula books.",
+                style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
               ),
             ),

@@ -40,33 +40,29 @@ class MenuScreen extends StatelessWidget {
   // Overrides the build method
   @override
   Widget build(BuildContext context) {
-    // Tab menu for navigation (across the top of the appbar)
     return DefaultTabController(
-      length: 3, // number of tabs
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
-            backgroundColor: Theme.of(context)
-                .colorScheme
-                .inversePrimary, // following the app color scheme
-            title: const Text(
-                "ABSOLUTE VALUE "), // application name -- "Absolute Value"
-            centerTitle: true,
-            bottom: const TabBar(tabs: [
-              // list of navigation tabs
-              Tab(
-                  icon: Icon(Icons.home),
-                  text: "Home"), // with a page title & icon each
-              Tab(icon: Icon(Icons.list), text: "Catalog"),
-              Tab(icon: Icon(Icons.shopping_cart), text: "Shopping Cart"),
-            ])),
-        body: TabBarView(children: [
-          // views to return when user navigates using the nav bar
-          const WelcomeScreen(),
-          const CatalogScreen(),
-          ShoppingCartScreen(
-            cartItems: cartItems,
-          ), // shopping cart is empty to begin
-        ]),
+          backgroundColor: Colors.teal, // AppBar background color
+          title: const Text("ABSOLUTE VALUE"),
+          centerTitle: true,
+          bottom: const TabBar(tabs: [
+            Tab(icon: Icon(Icons.home), text: "Home"),
+            Tab(icon: Icon(Icons.list), text: "Catalog"),
+            Tab(icon: Icon(Icons.shopping_cart), text: "Shopping Cart"),
+          ]),
+        ),
+        body: Container(
+          color: Colors.blueGrey[50], // Body background color
+          child: TabBarView(children: [
+            const WelcomeScreen(),
+            const CatalogScreen(),
+            ShoppingCartScreen(
+              cartItems: cartItems,
+            ),
+          ]),
+        ),
       ),
     );
   }
