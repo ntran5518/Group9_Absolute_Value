@@ -137,9 +137,13 @@ class ShoppingCartScreenState extends State<ShoppingCartScreen> {
                                       cartItems); // send cart list data to next page
                             }));
                           },
+                          style: FilledButton.styleFrom(
+                            backgroundColor:
+                                Colors.blueGrey, // Set the background color
+                          ),
                           child: const Text(
                             "Go to Checkout",
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 14, color: Colors.white),
                           )),
                     ) // button label
               // Output cart status

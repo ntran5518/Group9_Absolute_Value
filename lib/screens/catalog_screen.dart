@@ -133,11 +133,27 @@ class CatalogScreenState extends State<CatalogScreen> {
                 crossAxisAlignment: CrossAxisAlignment
                     .center, // centre column elements in centre of screen
                 children: [
-                  FilledButton(
+                  OutlinedButton(
                       onPressed: reset,
-                      child: const Text(
-                          "Reset Items")), // reset button to empty cart & refill stock
-                  // List of items (catalog)
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.black, // Text color
+                        side: const BorderSide(
+                            color: Colors.black,
+                            width: 1), // Border color and thickness
+                      ),
+                      child: const Row(
+                        // row widget for nice formatting of elements on button
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // both icon and text on button for user to reach shopping cart
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            child: Text("Reset Items"),
+                          ),
+                        ],
+                      )),
+                  // reset button to empty cart & refill stock
                   Expanded(
                       child: ListView.builder(
                           itemCount: currentStatusItems
@@ -166,6 +182,10 @@ class CatalogScreenState extends State<CatalogScreen> {
                                         buyPressed(
                                             currItem); // place selected item in the cart on button press
                                       },
+                                      style: FilledButton.styleFrom(
+                                        backgroundColor: Colors
+                                            .blueGrey, // Set the background color
+                                      ),
                                       child: const Text("Add to cart")),
                               onTap: () {
                                 // When user taps the list item, navigate to its respective details page
@@ -194,6 +214,12 @@ class CatalogScreenState extends State<CatalogScreen> {
                                   cartItems); // send cart items list to cart page
                         }));
                       },
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.black, // Text color
+                        side: const BorderSide(
+                            color: Colors.black,
+                            width: 1), // Border color and thickness
+                      ),
                       child: const Row(
                         // row widget for nice formatting of elements on button
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -206,7 +232,10 @@ class CatalogScreenState extends State<CatalogScreen> {
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 5),
-                            child: Icon(Icons.shopping_cart_checkout),
+                            child: Icon(
+                              Icons.shopping_cart_checkout,
+                              color: Colors.black,
+                            ),
                           ),
                         ],
                       )),

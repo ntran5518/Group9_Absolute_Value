@@ -84,9 +84,7 @@ class WelcomeScreenState extends State<WelcomeScreen> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
-                "Absolute Value is an eCommerce app for all your mathematical needs.\n"
-                "It offers a wide variety of products, ranging from pencils to advanced\n"
-                "textbooks and formula books.",
+                "Absolute Value is an eCommerce app for all your mathematical needs. It offers a wide variety of products, ranging from pencils to advanced textbooks and formula books.",
                 style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
               ),

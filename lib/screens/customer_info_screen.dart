@@ -157,12 +157,15 @@ class CustomerInfoScreenState extends State<CustomerInfoScreen> {
                         )),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(
-                        10), // add padding for layout beautification
+                    padding: const EdgeInsets.all(10),
+                    // add padding for layout beautification
+
                     child: SwitchListTile(
                         // user ticks whether or not they are a store member
                         title: const Text("Store member?"),
                         value: isMember,
+                        activeColor:
+                            Colors.green, // Change the toggle color when active
                         onChanged: (bool updatedSwitchValue) {
                           setState(() {
                             isMember =
@@ -177,6 +180,7 @@ class CustomerInfoScreenState extends State<CustomerInfoScreen> {
                       // user checks if they want their receipt emailed to them
                       title: const Text("Get emailed receipt?"),
                       value: this.getEmailedReceipt,
+                      activeColor: Colors.green,
                       onChanged: (bool? updatedCheckValue) {
                         setState(() {
                           if (updatedCheckValue != null) {
@@ -187,11 +191,17 @@ class CustomerInfoScreenState extends State<CustomerInfoScreen> {
                       },
                     ),
                   ),
+
                   FilledButton(
                     // button to submit user info & finish purchase
-                    onPressed: submitInformation, // call submit method
+                    onPressed: submitInformation,
+                    style: FilledButton.styleFrom(
+                      backgroundColor:
+                          Colors.blueGrey, // Set the background color
+                    ), // call submit method
                     child: const Text("Submit"), // button to submit information
                   ),
+
                   // Red error message text widget for any errors (if input is invalid)
                   Text(
                     totalErrors,

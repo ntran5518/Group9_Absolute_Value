@@ -51,14 +51,14 @@ class MenuScreen extends StatelessWidget {
           backgroundColor: Colors.teal, // AppBar background color
           title: const Text("ABSOLUTE VALUE"),
           centerTitle: true,
-          bottom: const TabBar(tabs: [
+          bottom: const TabBar(labelColor: Colors.blue, tabs: [
             Tab(icon: Icon(Icons.home), text: "Home"),
             Tab(icon: Icon(Icons.list), text: "Catalog"),
             Tab(icon: Icon(Icons.shopping_cart), text: "Shopping Cart"),
           ]),
         ),
         body: Container(
-          color: Colors.blueGrey[50], // Body background color
+          color: Colors.yellow[50], // Body background color
           child: TabBarView(children: [
             const WelcomeScreen(),
             const CatalogScreen(),
